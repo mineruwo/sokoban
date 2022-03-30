@@ -144,6 +144,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="FrameWork\Game.c" />
+    <ClCompile Include="FrameWork\input.c" />
     <ClCompile Include="FrameWork\Renderer.c" />
     <ClCompile Include="main.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
@@ -152,6 +153,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FrameWork\Game.h" />
+    <ClInclude Include="FrameWork\input.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.c">

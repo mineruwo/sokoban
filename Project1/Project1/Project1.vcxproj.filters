@@ -22,6 +22,9 @@
     <ClInclude Include="FrameWork\Renderer.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
+    <ClInclude Include="FrameWork\input.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -34,6 +37,9 @@
       <Filter>FrameWork</Filter>
     </ClCompile>
     <ClCompile Include="FrameWork\Renderer.c">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameWork\input.c">
       <Filter>FrameWork</Filter>
     </ClCompile>
   </ItemGroup>
