@@ -19,6 +19,9 @@
     <ClInclude Include="FrameWork\Game.h">
       <Filter>FrameWork</Filter>
     </ClInclude>
+    <ClInclude Include="FrameWork\Renderer.h">
+      <Filter>FrameWork</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.c">
@@ -28,6 +31,9 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="FrameWork\Game.c">
+      <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameWork\Renderer.c">
       <Filter>FrameWork</Filter>
     </ClCompile>
   </ItemGroup>

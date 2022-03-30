@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "FrameWork/Game.h"
 
-int main()
+int main(void)
 {
 	if (false == Initialize())
 	{

@@ -1,8 +1,13 @@
 #include "stdafx.h"
 #include "Game.h"
+#include "Renderer.h"
 
-bool Initalize()
+bool Initialize()
 {
+	if (false == InitalizeRenderer())
+	{
+		return false;
+	}
 	return true;
 }
 
@@ -20,7 +25,7 @@ void Update()
 
 void Render()
 {
-
+	RenderMap();
 
 }
 
