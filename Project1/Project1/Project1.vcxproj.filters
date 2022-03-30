@@ -8,10 +8,16 @@
     <Filter Include="Main">
       <UniqueIdentifier>{5d19661a-b68c-43d3-b3cd-9d94ad856bbb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="FrameWork">
+      <UniqueIdentifier>{10073631-1476-480c-ac42-739c69bbcd9b}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
       <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="FrameWork\Game.h">
+      <Filter>FrameWork</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -20,6 +26,9 @@
     </ClCompile>
     <ClCompile Include="stdafx.c">
       <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="FrameWork\Game.c">
+      <Filter>FrameWork</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
