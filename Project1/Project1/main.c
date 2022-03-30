@@ -1,9 +1,14 @@
-#include <stdio.h>
+#include "stdafx.h"
+#include "FrameWork/Game.h"
 
-int main()
+int main(void)
 {
+	if (false == Initialize())
+	{
+		puts("게임을 로딩하는데 문제가 생겼습니다.\n");
 
-	printf("hello World!");
+		return 1;
+	}
 
-	return 0;
+	return Run();
 }
