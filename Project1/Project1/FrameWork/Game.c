@@ -1,52 +1,48 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Renderer.h"
+#include "Input.h"
 #include "Timer.h"
 #include "Game/Stage.h"
-#include "input.h"
-
 
 bool Initialize()
 {
-	if (false == InitalizeRenderer())
+	if (false == InitializeRenderer())
 	{
 		return false;
 	}
 
 	InitializeTimer();
 
-	return true;
-	
-	IntitalizeTimer();
-
 	LoadStage(STAGE_01);
+
+	return true;
 }
 
-void ProcessInput()
+void processInput()
 {
 	UpdateInput();
 }
 
-void Update()
+void update()
 {
+	UpdateStage();
 }
 
-void Render()
+void render()
 {
 	RenderMap();
 }
 
 int32_t Run()
 {
-	//game loop의 전체를 Frame
 	while (true)
 	{
 		UpdateTimer();
-		//입력 처리
-		ProcessInput();
-		//업데이트
-		Update();
-		//렌더링
-		Render();
+		processInput();
+		update();
+		render();
 	}
+
+	return 0;
 }

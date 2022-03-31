@@ -1,10 +1,10 @@
 #include "stdafx.h"
-#include "input.h"
+#include "Input.h"
 
 static bool s_currentKeyStates[256] = { false };
 static bool s_prevKeyStates[256] = { false };
 
-bool isKeyDown(int keyCode)
+bool isKeyDown(int32_t keyCode)
 {
 	if (0x8000 & GetAsyncKeyState(keyCode))
 	{
@@ -15,11 +15,12 @@ bool isKeyDown(int keyCode)
 		return false;
 	}
 }
+
 void UpdateInput()
 {
 	memcpy(s_prevKeyStates, s_currentKeyStates, sizeof(s_prevKeyStates));
 
-	for (int keyCode = 0; keyCode < 256; ++keyCode)
+	for (int32_t keyCode = 0; keyCode < 256; ++keyCode)
 	{
 		if (isKeyDown(keyCode))
 		{
@@ -29,8 +30,6 @@ void UpdateInput()
 		{
 			s_currentKeyStates[keyCode] = false;
 		}
-
-		GetAsyncKeyState(keyCode);
 	}
 }
 
@@ -56,7 +55,6 @@ bool GetButtonUp(EKeyCode keyCode)
 	{
 		return false;
 	}
-
 }
 
 bool GetButton(EKeyCode keyCode)
@@ -69,5 +67,4 @@ bool GetButton(EKeyCode keyCode)
 	{
 		return false;
 	}
-
 }

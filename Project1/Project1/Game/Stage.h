@@ -6,24 +6,28 @@ typedef enum MapType
 	MAPTYPE_PLAYER = 'P',
 	MAPTYPE_BOX = 'a',
 	MAPTYPE_GOAL = 'O',
-	MAPTYPE_BOXONGOAL = '@',
+	MAPTYPE_BOX_ON_GOAL = '@',
 	MAPTYPE_PATH = ' '
-}EMapType; 
+} EMapType;
 
 typedef enum StageLevel
 {
 	STAGE_01 = 1,
 	STAGE_MAX
-}EStageLevel;
+} EStageLevel;
 
-/// <summary>
+///<summary>
 /// 스테이지를 로딩한다.
-/// </summary>
+///</summary>
 void LoadStage(EStageLevel level);
 
-
-
 /// <summary>
-/// 맵을 반환한다.
+/// 스테이지를 업데이트한다.
 /// </summary>
+void UpdateStage();
+
+
+///<summary>
+/// 맵을 반환한다.
+///</summary>
 const char** GetMap();

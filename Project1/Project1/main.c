@@ -1,11 +1,11 @@
-#include "stdafx.h"
-#include "FrameWork/Game.h"
+ï»¿#include "stdafx.h"
+#include "Framework/Game.h"
 
 int main(void)
 {
 	if (false == Initialize())
 	{
-		puts("°ÔÀÓÀ» ·ÎµùÇÏ´Âµ¥ ¹®Á¦°¡ »ı°å½À´Ï´Ù.\n");
+		puts("ê²Œì„ì„ ë¡œë”©í•˜ëŠ” ë° ë¬¸ì œê°€ ìƒê²¼ìŠµë‹ˆë‹¤.");
 
 		return 1;
 	}

@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="리소스 파일">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{e6af47ae-3b57-4c00-a722-53fc444f1155}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Framework">
+      <UniqueIdentifier>{21f7773c-4c69-4e88-8ef1-bc1d1617a9c4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{63fdafb2-c3d0-4f01-850e-489715ab547d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Main.c">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="stdafx.c">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Game.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Renderer.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Input.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Framework\Timer.c">
+      <Filter>Framework</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Stage.c">
+      <Filter>Game</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Game.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Renderer.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Input.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Framework\Timer.h">
+      <Filter>Framework</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Stage.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
