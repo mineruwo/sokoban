@@ -10,7 +10,7 @@ static int32_t s_playerY = 0;
 
 bool parseMapType(int i, int j, char mapType)
 {
-	if (mapType == '\n')
+	if (mapType == '\n'|| mapType == '\0')
 	{
 		return false;
 	}
@@ -25,14 +25,11 @@ bool parseMapType(int i, int j, char mapType)
 		break;
 	case MAPTYPE_GOAL:
 		s_goalCount++;
-
 		break;
 	case MAPTYPE_BOX_ON_GOAL:
 		s_boxOnGoalCount++;
 		break;
 	}
-
-
 }
 
 void clearStage()

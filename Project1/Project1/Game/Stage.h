@@ -8,6 +8,7 @@ typedef enum MapType
 	MAPTYPE_GOAL = 'O',
 	MAPTYPE_BOX_ON_GOAL = '@',
 	MAPTYPE_PATH = ' '
+
 } EMapType;
 
 typedef enum StageLevel
