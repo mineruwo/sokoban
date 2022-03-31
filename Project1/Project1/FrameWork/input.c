@@ -30,6 +30,8 @@ void UpdateInput()
 		{
 			s_currentKeyStates[keyCode] = false;
 		}
+
+		GetAsyncKeyState(keyCode);
 	}
 }
 
