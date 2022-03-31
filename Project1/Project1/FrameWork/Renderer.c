@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Renderer.h"
+#include "Game/Stage.h"
 #include "Timer.h"
+
 
 
 #define MAP_SIZE 24
@@ -39,6 +41,8 @@ void RenderMap()
 	SetConsoleCursorPosition(s_consleHandle, initailPos);
 	SetConsoleCursorInfo(s_consleHandle, &info);
 
+	const char** stage = GetMap();
+	memcpy(s_map, stage, sizeof(s_map));
 
 
 	for (int i = 0; i < MAP_SIZE; ++i)
@@ -47,6 +51,8 @@ void RenderMap()
 	}
 
 	clear();
+
+}
 }
 
 void SetMessage(const char* message)

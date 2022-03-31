@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Renderer.h"
-#include "input.h"
 #include "Timer.h"
+#include "Game/Stage.h"
+#include "input.h"
+
 
 bool Initialize()
 {
@@ -14,6 +16,10 @@ bool Initialize()
 	InitializeTimer();
 
 	return true;
+	
+	IntitalizeTimer();
+
+	LoadStage(STAGE_01);
 }
 
 void ProcessInput()
@@ -32,15 +38,15 @@ void Render()
 
 int32_t Run()
 {
-	//game loopÀÇ ÀüÃ¼¸¦ Frame
+	//game loopì˜ ì „ì²´ë¥¼ Frame
 	while (true)
 	{
 		UpdateTimer();
-		//ÀÔ·Â Ã³¸®
+		//ì…ë ¥ ì²˜ë¦¬
 		ProcessInput();
-		//¾÷µ¥ÀÌÆ®
+		//ì—…ë°ì´íŠ¸
 		Update();
-		//·»´õ¸µ
+		//ë Œë”ë§
 		Render();
 	}
 }
