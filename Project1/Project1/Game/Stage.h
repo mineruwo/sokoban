@@ -11,6 +11,12 @@ typedef enum MapType
 
 } EMapType;
 
+typedef struct Pos
+{
+	int posX;
+	int posY;
+}SPos;
+
 typedef enum StageLevel
 {
 	STAGE_01 = 1,

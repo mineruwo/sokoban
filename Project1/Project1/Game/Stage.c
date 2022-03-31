@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "Stage.h"
+#include "Player.h"
 #include "../Framework/input.h"
 
 static char s_map[MAP_SIZE][MAP_SIZE];
@@ -7,6 +8,7 @@ static int32_t s_goalCount = 0;
 static int32_t s_boxOnGoalCount = 0;
 static int32_t s_playerX = 0;
 static int32_t s_playerY = 0;
+static char s_prevObject = MAPTYPE_PATH;
 
 bool parseMapType(int i, int j, char mapType)
 {
@@ -81,26 +83,46 @@ void LoadStage(EStageLevel level)
 
 void UpdateStage()
 {
-	if(GetButton(KEYCODE_W))
+	s_map[s_playerX][s_playerY] = s_prevObject;
+	SPos tagetPos = { s_playerX, s_playerY };
+	char movedir = 0;
+
+	if (GetButtonDown(KEYCODE_W))
 	{
-		s_playerY--;
+		tagetPos.posX--;
+		movedir = KEYCODE_W;
 	}
-	else if (GetButton(KEYCODE_D))
+	else if (GetButtonDown(KEYCODE_S))
 	{
-		s_playerX++;
+		tagetPos.posX++;
+		movedir = KEYCODE_S;
 	}
-	else if (GetButton(KEYCODE_S))
+	else if (GetButtonDown(KEYCODE_A))
 	{
-		s_playerY++;
+		tagetPos.posY--;
+		movedir = KEYCODE_A;
 	}
-	else if (GetButton(KEYCODE_A))
+	else if (GetButtonDown(KEYCODE_D))
 	{
-		s_playerX--;
+		tagetPos.posY++;
+		movedir = KEYCODE_D;
 	}
 
+	if (PlayerMovemet(s_map, tagetPos, movedir,&s_prevObject))
+	{
+
+		s_playerX = tagetPos.posX;
+		s_playerY = tagetPos.posY;
+
+		s_map[s_playerX][s_playerY] = MAPTYPE_PLAYER;
+	}
+	
+	
 	if (s_goalCount == s_boxOnGoalCount)
 	{
+
 		return 0;
+		//일시적으로 클리어 했다라는 걸 보여주는 거.
 	}
 }
 
