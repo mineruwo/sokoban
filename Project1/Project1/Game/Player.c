@@ -37,7 +37,6 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 		else
 		{
 			s_map[pos.posX][pos.posY] = MAPTYPE_PLAYER;
-			
 		}
 		*s_prevObject = MAPTYPE_PATH;
 	}
@@ -68,6 +67,7 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 		}
 		else
 		{
+		
 			s_map[pos.posX][pos.posY] = MAPTYPE_PLAYER;
 		}
 		*s_prevObject = MAPTYPE_PATH;

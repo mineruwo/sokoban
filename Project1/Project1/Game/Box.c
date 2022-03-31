@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "Stage.h"
 #include "Box.h"
 
 bool BoxMovement(char s_map[][MAP_SIZE], SPos pos)

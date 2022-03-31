@@ -122,7 +122,6 @@ void UpdateStage()
 	{
 
 		return 0;
-		//일시적으로 클리어 했다라는 걸 보여주는 거.
 	}
 }
 
