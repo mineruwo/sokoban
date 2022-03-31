@@ -1,15 +1,22 @@
 #include "stdafx.h"
 #include "Renderer.h"
+#include "Timer.h"
 
 
 #define MAP_SIZE 24
 
-static char s_map[MAP_SIZE][MAP_SIZE] = {
-	"***********",
-	"* Sokoban *",
-	"***********"
-};
+static char s_map[MAP_SIZE][MAP_SIZE];
 static HANDLE s_consleHandle;
+
+void clear()
+{
+	memset(s_map, ' ', sizeof(s_map));
+
+	for (int i = 0; i < MAP_SIZE; ++i)
+	{
+		s_map[i][MAP_SIZE - 1] = '\0';
+	}
+}
 
 bool InitalizeRenderer()
 {
@@ -20,15 +27,7 @@ bool InitalizeRenderer()
 		return false;
 	}
 
-	/*CONSOLE_CURSOR_INFO info;
-	info.dwSize = 100;
-	info.bVisible = false;
-
-	if (false == SetConsoleCursorInfo(s_consleHandle, &info))
-	{
-		return false;
-	}*/
-
+	
 	return true;
 }
 
@@ -39,12 +38,18 @@ void RenderMap()
 	
 	SetConsoleCursorPosition(s_consleHandle, initailPos);
 	SetConsoleCursorInfo(s_consleHandle, &info);
-	
-	/*memcpy(s_map, s_backBuffer,sizeof(s_map));*/
+
+
 
 	for (int i = 0; i < MAP_SIZE; ++i)
 	{
 		puts(s_map[i]);
 	}
 
+	clear();
+}
+
+void SetMessage(const char* message)
+{
+	strcpy_s(s_map[0],MAP_SIZE, message);
 }

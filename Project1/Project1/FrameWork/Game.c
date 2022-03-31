@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Renderer.h"
+#include "input.h"
+#include "Timer.h"
 
 bool Initialize()
 {
@@ -8,25 +10,24 @@ bool Initialize()
 	{
 		return false;
 	}
+
+	InitializeTimer();
+
 	return true;
 }
 
 void ProcessInput()
 {
-
-
+	UpdateInput();
 }
 
 void Update()
 {
-
-
 }
 
 void Render()
 {
 	RenderMap();
-
 }
 
 int32_t Run()
@@ -34,6 +35,7 @@ int32_t Run()
 	//game loop의 전체를 Frame
 	while (true)
 	{
+		UpdateTimer();
 		//입력 처리
 		ProcessInput();
 		//업데이트
