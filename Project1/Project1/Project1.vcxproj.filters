@@ -11,6 +11,12 @@
     <Filter Include="FrameWork">
       <UniqueIdentifier>{10073631-1476-480c-ac42-739c69bbcd9b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Stage">
+      <UniqueIdentifier>{1fdaa9c5-c7f5-4af5-bea8-dc911aaa76e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game">
+      <UniqueIdentifier>{9b0aa34e-23bc-4baa-88a3-bf4ba6a1ded3}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="stdafx.h">
@@ -24,6 +30,12 @@
     </ClInclude>
     <ClInclude Include="FrameWork\input.h">
       <Filter>FrameWork</Filter>
+    </ClInclude>
+    <ClInclude Include="Game\Stage.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="Macro.h">
+      <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -41,6 +53,9 @@
     </ClCompile>
     <ClCompile Include="FrameWork\input.c">
       <Filter>FrameWork</Filter>
+    </ClCompile>
+    <ClCompile Include="Game\Stage.c">
+      <Filter>Game</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

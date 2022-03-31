@@ -146,6 +146,7 @@
     <ClCompile Include="FrameWork\Game.c" />
     <ClCompile Include="FrameWork\input.c" />
     <ClCompile Include="FrameWork\Renderer.c" />
+    <ClCompile Include="Game\Stage.c" />
     <ClCompile Include="main.c">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Use</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Use</PrecompiledHeader>
@@ -155,6 +156,8 @@
     <ClInclude Include="FrameWork\Game.h" />
     <ClInclude Include="FrameWork\input.h" />
     <ClInclude Include="FrameWork\Renderer.h" />
+    <ClInclude Include="Game\Stage.h" />
+    <ClInclude Include="Macro.h" />
     <ClInclude Include="stdafx.h" />
     <ClCompile Include="stdafx.c">
       <FileType>CppHeader</FileType>
