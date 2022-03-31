@@ -12,3 +12,5 @@ bool InitalizeRenderer();
 /// </summary>
 /// <returns></returns>
 void RenderMap();
+
+void SetMessage(const char* message);

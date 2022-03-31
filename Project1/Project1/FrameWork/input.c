@@ -1,19 +1,42 @@
 #include "stdafx.h"
 #include "input.h"
 
-static bool _currentKeyStates[256] = { false };
-static bool _prevKeyStates[256] = { false };
+static bool s_currentKeyStates[256] = { false };
+static bool s_prevKeyStates[256] = { false };
 
-
+bool isKeyDown(int keyCode)
+{
+	if (0x8000 & GetAsyncKeyState(keyCode))
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
 void UpdateInput()
 {
-	
+	memcpy(s_prevKeyStates, s_currentKeyStates, sizeof(s_prevKeyStates));
 
+	for (int keyCode = 0; keyCode < 256; ++keyCode)
+	{
+		if (isKeyDown(keyCode))
+		{
+			s_currentKeyStates[keyCode] = true;
+		}
+		else
+		{
+			s_currentKeyStates[keyCode] = false;
+		}
+
+		GetAsyncKeyState(keyCode);
+	}
 }
 
 bool GetButtonDown(EKeyCode keyCode)
 {
-	if (false == _prevKeyStates[keyCode] && false == _currentKeyStates[keyCode])
+	if (false == s_prevKeyStates[keyCode] && s_currentKeyStates[keyCode])
 	{
 		return true;
 	}
@@ -25,7 +48,7 @@ bool GetButtonDown(EKeyCode keyCode)
 
 bool GetButtonUp(EKeyCode keyCode)
 {
-	if (false == _prevKeyStates[keyCode] && false == _currentKeyStates[keyCode])
+	if (s_prevKeyStates[keyCode] && false == s_currentKeyStates[keyCode])
 	{
 		return true;
 	}
@@ -38,7 +61,7 @@ bool GetButtonUp(EKeyCode keyCode)
 
 bool GetButton(EKeyCode keyCode)
 {
-	if (false == _prevKeyStates[keyCode] && false == _currentKeyStates[keyCode])
+	if (s_prevKeyStates[keyCode] && s_currentKeyStates[keyCode])
 	{
 		return true;
 	}
