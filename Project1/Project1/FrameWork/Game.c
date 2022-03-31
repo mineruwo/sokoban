@@ -1,6 +1,8 @@
 #include "stdafx.h"
 #include "Game.h"
 #include "Renderer.h"
+#include "Timer.h"
+#include "Game/Stage.h"
 
 bool Initialize()
 {
@@ -9,6 +11,10 @@ bool Initialize()
 		return false;
 	}
 	return true;
+	
+	IntitalizeTimer();
+
+	LoadStage(STAGE_01);
 }
 
 void ProcessInput()
