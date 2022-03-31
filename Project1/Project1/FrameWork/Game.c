@@ -3,6 +3,8 @@
 #include "Renderer.h"
 #include "Timer.h"
 #include "Game/Stage.h"
+#include "input.h"
+
 
 bool Initialize()
 {
@@ -10,6 +12,9 @@ bool Initialize()
 	{
 		return false;
 	}
+
+	InitializeTimer();
+
 	return true;
 	
 	IntitalizeTimer();
@@ -19,32 +24,29 @@ bool Initialize()
 
 void ProcessInput()
 {
-
-
+	UpdateInput();
 }
 
 void Update()
 {
-
-
 }
 
 void Render()
 {
 	RenderMap();
-
 }
 
 int32_t Run()
 {
-	//game loopÀÇ ÀüÃ¼¸¦ Frame
+	//game loopì˜ ì „ì²´ë¥¼ Frame
 	while (true)
 	{
-		//ÀÔ·Â Ã³¸®
+		UpdateTimer();
+		//ì…ë ¥ ì²˜ë¦¬
 		ProcessInput();
-		//¾÷µ¥ÀÌÆ®
+		//ì—…ë°ì´íŠ¸
 		Update();
-		//·»´õ¸µ
+		//ë Œë”ë§
 		Render();
 	}
 }
