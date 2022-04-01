@@ -17,11 +17,15 @@ bool BoxMovement(char s_map[][MAP_SIZE], SPos pos,char movedir ,int32_t** s_boxO
 	{
 		s_map[pos.posX][pos.posY] = MAPTYPE_BOX;
 	}
+	else if (s_map[pos.posX][pos.posY] == MAPTYPE_BOX_ON_GOAL)
+	{
+		return false;
+	}
 
 	return true;
 }
 
-bool BoxOnGoalMovement(char s_map[][MAP_SIZE], SPos pos, int** s_boxOnGoalCount)
+bool BoxOnGoalMovement(char s_map[][MAP_SIZE], SPos pos, char movedir, int32_t** s_boxOnGoalCount)
 {
 
 	if (s_map[pos.posX][pos.posY] == MAPTYPE_WALL || s_map[pos.posX][pos.posY] == MAPTYPE_BOX|| s_map[pos.posX][pos.posY] == MAPTYPE_BOX_ON_GOAL)

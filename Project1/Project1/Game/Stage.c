@@ -63,15 +63,17 @@ void LoadStage(EStageLevel level)
 	static char path[MAX_PATH] = { 0 };
 	sprintf_s(path, sizeof(path), "Stage/Stage%02d.txt", (int32_t)level);
 
+
 	FILE* fp = NULL;
 	fopen_s(&fp, path, "r");
 	assert(fp != NULL);
 
 	clearStage();
 
-	for (size_t i = 0; i < MAP_SIZE; ++i)
+
+	for (size_t i = 1; i < MAP_SIZE-1; ++i)
 	{
-		for (size_t j = 0; j < MAP_SIZE; ++j)
+		for (size_t j = 1; j < MAP_SIZE-1; ++j)
 		{
 			char ch = fgetc(fp);
 
@@ -89,6 +91,7 @@ void LoadStage(EStageLevel level)
 	
 	fclose(fp);
 }
+
 
 void UpdateStage()
 {
@@ -115,6 +118,13 @@ void UpdateStage()
 	{
 		tagetPos.posY++;
 		movedir = KEYCODE_D;
+	}
+	else if (GetButtonDown(KEYCODE_R))
+	{
+		clearStage();
+		LoadStage(s_currentLevel);
+		tagetPos.posX = s_playerX;
+		tagetPos.posY = s_playerY;
 	}
 
 	if (PlayerMovemet(s_map, tagetPos, movedir,&s_prevObject,&s_boxOnGoalCount))

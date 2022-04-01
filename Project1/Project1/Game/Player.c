@@ -61,7 +61,7 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 			tagetPos.posY++;
 			break;
 		}
-		if (BoxOnGoalMovement(s_map, tagetPos, movedir, &*s_boxOnGoalCount) == false)
+		if (BoxOnGoalMovement(s_map, tagetPos, movedir, &s_boxOnGoalCount) == false)
 		{
 			return false;
 		}
