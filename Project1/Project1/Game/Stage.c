@@ -8,6 +8,7 @@ static int32_t s_goalCount = 0;
 static int32_t s_boxOnGoalCount = 0;
 static int32_t s_playerX = 0;
 static int32_t s_playerY = 0;
+static EStageLevel s_currentLevel = 0;
 static char s_prevObject = MAPTYPE_PATH;
 
 bool parseMapType(int i, int j, char mapType)
@@ -29,6 +30,7 @@ bool parseMapType(int i, int j, char mapType)
 		s_goalCount++;
 		break;
 	case MAPTYPE_BOX_ON_GOAL:
+		s_goalCount++;
 		s_boxOnGoalCount++;
 		break;
 	}
@@ -49,7 +51,14 @@ void clearStage()
 
 void LoadStage(EStageLevel level)
 {
+	if (level == STAGE_MAX)
+	{
+		system("cls");
+		puts("게임 올 클리어");
+		exit(1);
+	}
 	assert(STAGE_01 <= level && level < STAGE_MAX);
+	s_currentLevel = level;
 
 	static char path[MAX_PATH] = { 0 };
 	sprintf_s(path, sizeof(path), "Stage/Stage%02d.txt", (int32_t)level);
@@ -108,7 +117,7 @@ void UpdateStage()
 		movedir = KEYCODE_D;
 	}
 
-	if (PlayerMovemet(s_map, tagetPos, movedir,&s_prevObject))
+	if (PlayerMovemet(s_map, tagetPos, movedir,&s_prevObject,&s_boxOnGoalCount))
 	{
 
 		s_playerX = tagetPos.posX;
@@ -120,9 +129,10 @@ void UpdateStage()
 	
 	if (s_goalCount == s_boxOnGoalCount)
 	{
+		
+		LoadStage(++s_currentLevel);
 
-		return 0;
-	}
+	}//게임이 클리어 됬는지 확인하는 조건문
 }
 
 const char** GetMap()

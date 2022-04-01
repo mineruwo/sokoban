@@ -3,7 +3,7 @@
 #include "Box.h"
 #include "../Framework/input.h"
 
-bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevObject)
+bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevObject,int32_t* s_boxOnGoalCount)
 {
 	if (s_map[pos.posX][pos.posY] == MAPTYPE_WALL)
 	{
@@ -30,7 +30,7 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 			tagetPos.posY++;
 			break;
 		}
-		if (BoxMovement(s_map, tagetPos, movedir) == false)
+		if (BoxMovement(s_map, tagetPos, movedir,&s_boxOnGoalCount) == false)
 		{
 			return false;
 		}
@@ -61,16 +61,15 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 			tagetPos.posY++;
 			break;
 		}
-		if (BoxMovement(s_map, tagetPos, movedir) == false)
+		if (BoxOnGoalMovement(s_map, tagetPos, movedir, &*s_boxOnGoalCount) == false)
 		{
 			return false;
 		}
 		else
 		{
-		
 			s_map[pos.posX][pos.posY] = MAPTYPE_PLAYER;
 		}
-		*s_prevObject = MAPTYPE_PATH;
+		*s_prevObject = MAPTYPE_GOAL;
 	}
 	else if (s_map[pos.posX][pos.posY] == MAPTYPE_GOAL)
 	{
@@ -80,9 +79,6 @@ bool PlayerMovemet(char s_map[][MAP_SIZE], SPos pos, char movedir, char *s_prevO
 	{
 		*s_prevObject = MAPTYPE_PATH;
 	}
-
-
-
 
 	return true;
 }

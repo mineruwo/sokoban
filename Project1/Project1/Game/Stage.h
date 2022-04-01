@@ -20,6 +20,7 @@ typedef struct Pos
 typedef enum StageLevel
 {
 	STAGE_01 = 1,
+	STAGE_02 = 2,
 	STAGE_MAX
 } EStageLevel;
 
